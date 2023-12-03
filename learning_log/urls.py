@@ -26,21 +26,7 @@ from learning_logs.views import My_View
 urlpatterns = [
     
      path("learning_logs/", My_View.as_view(), name="my_view"),
-     # path('test/', include('django.contrib.admin.urls')),  # Include admin URLs correctly
-     # path("learning_log/learning_logs/", My_View.as_view(), name # ="my_view"),
-    path('admin/', admin.site.urls),
+     path('admin/', admin.site.urls),
 ]
-
-
-
-
-#urlpatterns = [
-#    path("learning_log/learning_logs", tst_views , name = 'home'),
-#    
-#]
 
 # *******End of added by alain  30/11/2023 ******
-
-urlpatterns = [
-    path('admin/', admin.site.urls),
-]
