@@ -25,7 +25,7 @@ from learning_logs.views import My_View
 
 urlpatterns = [
     
-     path("learning_logs/", My_View.as_view(), name="my_view"),
+     path("learning_log/", My_View.as_view(), name="my_view"),
      path('admin/', admin.site.urls),
 ]
 
