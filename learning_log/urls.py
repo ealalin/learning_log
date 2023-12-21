@@ -21,6 +21,10 @@ from django.urls import path
 
 from django.urls import path
 # To this import statement
+# ----------add 20/12/2023-------------
+ROOT_URLCONF = 'urls'
+
+# --------- End add 20/12/2023-------------
 from learning_logs.views import My_View
 
 urlpatterns = [
