@@ -7,7 +7,7 @@ class TextField(models.TextField):
 class Topic(models.Model):
     # a topic that the user is learning about
     date_added = models.DateTimeField(auto_now_add=True)
-    #date_added = models.DateTimeField(auto_now_add=True, default=timezone.now)
+    # date_added = models.DateTimeField(auto_now_add=True, default=timezone.now) # Needs a default value to populate, value set to "timezone.now"
 
     def __str__(self):
         """Return a string representing the model."""
@@ -17,7 +17,7 @@ class Entry(models.Model):
     topic = models.ForeignKey(Topic, on_delete=models.CASCADE)
     text = TextField(max_length=200)  # Using the custom TextField
     date_added = models.DateTimeField(auto_now_add=True)
-    #date_added = models.DateTimeField(auto_now_add=True, default=timezone.now)
+    # date_added = models.DateTimeField(auto_now_add=True, default=timezone.now)
 
 
     class Meta:
