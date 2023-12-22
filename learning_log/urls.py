@@ -15,22 +15,33 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 
 # ******added by alain  30/11/2023 ******
 
-from django.urls import path
+# from django.urls import path
 # To this import statement
 # ----------add 20/12/2023-------------
 ROOT_URLCONF = 'urls'
 
-# --------- End add 20/12/2023-------------
-from learning_logs.views import My_View
+# # --------- End add 20/12/2023-------------
+# from learning_logs.views import My_View
+#
+# urlpatterns = [
+#
+#      path("learning_log/", My_View.as_view(), name="my_view"),
+#      path('admin/', admin.site.urls),
+# ]
+#
+# # *******End of added by alain  30/11/2023 ******
 
 urlpatterns = [
-    
-     path("learning_log/", My_View.as_view(), name="my_view"),
      path('admin/', admin.site.urls),
+     path('', include('learning_logs.urls'))
 ]
 
-# *******End of added by alain  30/11/2023 ******
+"""
+Best practice to register urls for specific apps using 'include()', and then 
+have them in their own urls.py file
+See new urls.py...
+"""
