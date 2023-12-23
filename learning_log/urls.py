@@ -15,22 +15,30 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
 
 # ******added by alain  30/11/2023 ******
 
 from django.urls import path
-# To this import statement
-# ----------add 20/12/2023-------------
-ROOT_URLCONF = 'urls'
-
-# --------- End add 20/12/2023-------------
+#from . import views
 from learning_logs.views import My_View
+
+# To this import statement
+
+#from learning_logs.views import My_View
 
 urlpatterns = [
     
      path("learning_log/", My_View.as_view(), name="my_view"),
+     #path("learning_log/", My_View.as_view(), name="my_view"),
+     #path('', views.My_View, name="my_view"),  # FBV approach
      path('admin/', admin.site.urls),
 ]
 
-# *******End of added by alain  30/11/2023 ******
+# *******correction from Miracle******
+#from django.urls import path
+#from . import views
+#
+#urlpatterns = [
+#    # path("learning_log/", My_View.as_view(), name="my_view")  # CBV approach, remember to have class imported
+#    path('', views.My_View, name="my_view")  # FBV approach
+#]
