@@ -26,13 +26,13 @@ SECRET_KEY = 'django-insecure-%)a543smid&l1&&=h&&wu69bozkz3*hl()$7b5ip6&1!4v7%*=
 DEBUG = True
 
 ALLOWED_HOSTS = []
-# correction from the 23/12/2023 after that run server.
-# After making this change, you should be able to access http://127.0.0.1:8000/learning_logs in your browser 
-APPEND_SLASH = True
+
+APPEND_SLASH = True       # add by alain
 
 # Application definition
 
-INSTALLED_APPS = [     
+INSTALLED_APPS = (
+ 
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'learning_logs',                # add by alain
-]
+)
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
