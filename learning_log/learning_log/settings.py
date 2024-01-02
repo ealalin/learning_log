@@ -55,7 +55,9 @@ ROOT_URLCONF = 'learning_log.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+       # 'DIRS': [],
+       #'DIRS': ['/learning_log/learning_logs/templates/learning_logs'],  # Specify the path to your templates directory here
+        'DIRS': ['C:\\learning_log\\learning_logs\\templates\\learning_logs'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
