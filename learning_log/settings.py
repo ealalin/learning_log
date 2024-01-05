@@ -57,7 +57,8 @@ ROOT_URLCONF = 'learning_log.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+     #   'DIRS': [],
+         'DIRS': [BASE_DIR / 'templates/learning_logs'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

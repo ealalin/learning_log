@@ -5,10 +5,9 @@ class TextField(models.TextField):
     pass
 
 class Topic(models.Model):
+    text = models.CharField(max_length=200)
     # a topic that the user is learning about
     date_added = models.DateTimeField(auto_now_add=True)
-    #date_added = models.DateTimeField(auto_now_add=True, default=timezone.now)
-
     def __str__(self):
         """Return a string representing the model."""
         return f"Topic {self.id}"
@@ -23,10 +22,7 @@ class Entry(models.Model):
     class Meta:
         verbose_name_plural = 'entries'
 
-    #def __str__(self):
-    #    """Return a string representing the model."""
-    #    return self.text[:50] + "..."
-    
+   
     def __str__(self):
         """Return a string representing the model."""
         return f"Topic {self.id}"

@@ -1,6 +1,42 @@
+
+
+
+
+
+
+
 <p>
-<a href="{% url 'learning_logs:index' %}">learning_logs</a> -
-<a href="{% url 'learning_logs:topics'  %}">topics</a>"           }
-</p>
+
+
+<a href="{% url 'learning_logs:index' %}">learning_logs</a>
+
+<p>
+
+
+
+
+
+<p>
+
+<a href="{% url 'learning_logs:topics'  %}">topics</a>" 
+
+<p>
+
+
+{% for topic in topics %}
+    <p>ID: {{ topic.id }}, Text: {{ topic.text }}</p>
+{% endfor %}   
+
+
+
+{% block content %}
+
+
+
+
+ {% endblock content %}
+
+
+       
 
 

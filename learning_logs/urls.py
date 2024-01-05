@@ -9,6 +9,7 @@ urlpatterns = [
 
     # show all topics
     url(r'^topics/$', views.topics, name='topics'),
-          
+    # detail page for a single topic
+    url(r'^topics/(?P<topic_id>\d+)/$' , views.Topic , name='topic'),      
 ]
 
