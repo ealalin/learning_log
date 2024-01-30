@@ -1,0 +1,12 @@
+<p>Topics:</p>
+<ul>
+  {% for topic in topics %}
+    <li>
+      <a href="{% url 'learning_logs:topic' topic_id=topic.id %}">{{ topic }} ({{ topic.entry_set.count }} entries)</a>
+    </li>
+  {% empty %}
+    <li>
+      There are no topics.
+    </li>
+  {% endfor %}
+</ul>

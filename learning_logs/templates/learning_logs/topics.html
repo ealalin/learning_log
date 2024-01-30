@@ -2,13 +2,18 @@
 
 {% block content %}
 
-<p>Entries:</p>
+ <p>Entries:</p>
 <ul>
 {% for entry in entries %}
   <li>
+    <p>{{entry}}</p>  
     <p>{{ entry.date_added|date:'M d, Y H:i' }}</p>
     <p>{{ entry.text|linebreaks }}</p>
   <li>
+<li>
+   <p> Entries put it here </p>
+
+ <li>
 {% empty %}
   <li>
     There are no entries for this topic yet.
@@ -17,7 +22,7 @@
 <ul>   
 
 
-<p>Topics: {{ topic }}</p>
+<p>topics: {{ topic }}</p>
 <ul>
 {% for topic in topics %}
   <li>
@@ -30,6 +35,6 @@
 {% endfor %}
 <ul>   
 
-
+<a href="{% url 'learning_logs:new_topic' %}">Add a new topic</a>
 
 {% endblock content %}
