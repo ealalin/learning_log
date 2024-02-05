@@ -15,7 +15,11 @@ urlpatterns = [
     url(r'^new_topic/$' , views.new_topic , name='new_topic'), 
     # new_entry    
     url(r'^new_entry/(?P<topic_id>\d+)/$' , views.new_entry , name='new_entry'), 
-     # test    
-     url(r'^test/$', views.test, name='test'),    
+    # test    
+    url(r'^test/$', views.test, name='test'),
+    # page for editind an entry
+    url(r'^edit_entry/(?P<entry_id>\d+)/$' , views.edit_entry , name='edit_entry'),
+    # show all the entry
+    url(r'^show_entry/$', views.show_entry , name='show_entry'),  
 ]
 

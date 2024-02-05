@@ -17,8 +17,10 @@ def index(request):
 def topics(request):
     """show all topics"""
     topics = Topic.objects.order_by('date_added')  # Use a different variable name
-    context = {'topics': topics}
-    return render(request, 'learning_logs/topics.html', context)
+    # context = {'topics': topics}
+    # will have to use also the entries  Modif 05/02/2024
+    entries = Entry.objects.all()
+    return render(request, 'learning_logs/topics.html', {'topics': topics, 'entries': entries})
 
 # ------test to see the entry----    
 def test(request):
@@ -61,8 +63,8 @@ def new_topic(request):
     
 #++++++++ end New proposal when we want to add a new entrey and the topic_id does not exist yet ex:http://127.0.0.1:8000/new_entry/25/
 from django.shortcuts import render, get_object_or_404, HttpResponseRedirect, reverse
-from .models import Topic
-from .forms import EntryForm  # Import your EntryForm
+from .models import Topic, Entry
+from .forms import EntryForm ,TopicForm # Import your EntryForm & TopicForm
 
 def new_entry(request, topic_id):
     """Add a new entry for a particular topic"""
@@ -80,3 +82,31 @@ def new_entry(request, topic_id):
 
     context = {'topic': topic, 'form': form}
     return render(request, 'learning_logs/new_entry.html', context)
+
+def edit_entry(request, entry_id):
+    """Edit an existing entry."""
+    entry = Entry.objects.get(id=entry_id)
+    topic = entry.topic
+
+    if request.method != 'POST':
+        #initial request ; pre-fill form with the current entry.
+        form = EntryForm(instance=entry)
+    else:
+        #POST data submitted; process data
+        form = EntryForm(instance=entry, data=request.POST) 
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('learning_logs:topic' , args=[topic.id])) 
+    context = {'entry': entry, 'topic': topic, 'form' : form} 
+    return render(request, 'learning_logs/edit_entry.html', context)     
+
+def show_entry(request ):
+    """ show all the entry"""
+    try:
+       entries = Entry.objects.all()
+       context = {'entries': entries}
+       return render(request, 'learning_logs/show_entry.html', context)
+
+    except EntryForm.DoesNotExist:
+        # Raise a custom Http404 exception
+     raise Http404("Entry does not exist")   
