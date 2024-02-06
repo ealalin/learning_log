@@ -40,6 +40,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'learning_logs',                # add by alain
+    'users',                         # add the 5/03/2024
 )
 
 MIDDLEWARE = [
