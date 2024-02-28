@@ -11,6 +11,7 @@ from django.http import HttpResponseRedirect, Http404
 from django.contrib.auth.models import User 
 from django.http import Http404
 
+
 # Create your views here.
 
 def index(request):
@@ -101,13 +102,6 @@ def new_topic(request):
     context = {'form': form}
     return render(request, 'learning_logs/new_topic.html', context)
 
-
-    
-#++++++++ end New proposal when we want to add a new entrey and the topic_id does not exist yet ex:http://127.0.0.1:8000/new_entry/25/
-from django.shortcuts import render, get_object_or_404, HttpResponseRedirect, reverse
-from .models import Topic, Entry
-from .forms import EntryForm ,TopicForm # Import your EntryForm & TopicForm
-
 def new_entry(request, topic_id):
     """Add a new entry for a particular topic"""
     topic = get_object_or_404(Topic, id=topic_id)
@@ -151,11 +145,21 @@ def show_entry(request ):
        entries = Entry.objects.all()
        context = {'entries': entries}
        return render(request, 'learning_logs/show_entry.html', context)
-
     except EntryForm.DoesNotExist:
         # Raise a custom Http404 exception
      raise Http404("Entry does not exist")  
-     
+
+
+def show_edit_entry(request ):
+    """ show all the entry"""
+    try:
+       entries = Entry.objects.all()
+       context = {'entries': entries}
+       return render(request, 'learning_logs/show_edit_entry.html', context)
+    except EntryForm.DoesNotExist:
+        # Raise a custom Http404 exception
+     raise Http404("Entry does not exist") 
+
     
 def check_topic_owner(topic_owner , request_user ):
     """ make sure that the logged user use his own topic , if not quit the page"""

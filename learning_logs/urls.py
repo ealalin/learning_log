@@ -19,7 +19,11 @@ urlpatterns = [
     url(r'^test/$', views.test, name='test'),
     # page for editind an entry
     url(r'^edit_entry/(?P<entry_id>\d+)/$' , views.edit_entry , name='edit_entry'),
-    # show all the entry
-    url(r'^show_entry/$', views.show_entry , name='show_entry'),  
-]
+    #  name='show all entry 
+     url(r'^show_entry/$', views.show_entry , name='show_entry'),
+     # show all the entry + edit
+    #  url(r'^show_entri/(?P<entri_id>\d+)$', views.show_entri , name='show_entri'),
+    # url(r'^edit_entri/(?P<entri_id>\d+)/$', views.show_entri, name='edit_entri'),
 
+
+]
