@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 
-
+import os     # cor 22/04/2024
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -157,6 +157,11 @@ SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO' , 'https')
 ALLOWED_HOSTS = ['*']   
 
 # static configuration here done
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-STATIC_ROOT = 'staticfiles'
+# BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+# STATIC_ROOT = 'staticfiles'   coe 24/04/202
+
+# Change STATIC_ROOT to use os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')       # cor 24/04/2024
+
 STATICFILES_DIRS = (os.path.join(BASE_DIR , 'static'))
